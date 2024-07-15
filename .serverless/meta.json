@@ -1,0 +1,118 @@
+{
+  "/Users/haziqhaikal/Documents/work/personal/projects/lambda_projects/pomelo_tech_test": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.12",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {},
+    "composeServiceName": null,
+    "servicePath": "/Users/haziqhaikal/Documents/work/personal/projects/lambda_projects/pomelo_tech_test",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "org": "haziqhaikal",
+      "service": "serverless-app",
+      "package": {
+        "include": [
+          "src/**/*"
+        ]
+      },
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs14.x",
+        "region": "us-east-1",
+        "stage": "dev",
+        "versionFunctions": true
+      },
+      "plugins": [
+        "serverless-offline",
+        "serverless-plugin-typescript"
+      ],
+      "custom": {
+        "serverless-offline": {
+          "noPrependStageInUrl": true
+        }
+      },
+      "functions": {
+        "createTransaction": {
+          "handler": "dist/handlers/createTransaction.handler",
+          "events": [
+            {
+              "http": {
+                "path": "transaction",
+                "method": "post"
+              }
+            }
+          ]
+        },
+        "getTransactions": {
+          "handler": "dist/handlers/getTransactions.handler",
+          "events": [
+            {
+              "http": {
+                "path": "transaction",
+                "method": "get",
+                "cors": true
+              }
+            }
+          ]
+        }
+      }
+    },
+    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\norg: haziqhaikal\nservice: serverless-app\n\n# frameworkVersion: \"4.1.12\"\n\npackage:\n  include:\n    - src/**/*\n\nprovider:\n  name: aws\n  runtime: nodejs14.x\n  region: us-east-1\n\nplugins:\n  - serverless-offline\n  - serverless-plugin-typescript\n\ncustom:\n  serverless-offline:\n    noPrependStageInUrl: true\n\nfunctions:\n  createTransaction:\n    handler: dist/handlers/createTransaction.handler\n    events:\n      - http:\n          path: transaction\n          method: post\n          # cors: true\n\n  getTransactions:\n    handler: dist/handlers/getTransactions.handler\n    events:\n      - http:\n          path: transaction\n          method: get\n          cors: true\n\n  # updateTransaction:\n  #   handler: ./src/handlers/updateTransaction.handler\n  #   events:\n  #     - http:\n  #         path: transaction/{id}\n  #         method: patch\n  #         cors: true\n",
+    "command": [
+      "offline"
+    ],
+    "options": {},
+    "error": {
+      "message": "Serverless now includes ESBuild and supports Typescript out-of-the-box. But this conflicts with the plugin 'serverless-plugin-typescript'.\nYou can either remove this plugin and try Serverless's ESBuild support builtin, or you can set 'build.esbuild' to false in your 'serverless.yml'.\nFor more information go to, https://slss.io/buildoptions",
+      "stack": "ServerlessError2: Serverless now includes ESBuild and supports Typescript out-of-the-box. But this conflicts with the plugin 'serverless-plugin-typescript'.\nYou can either remove this plugin and try Serverless's ESBuild support builtin, or you can set 'build.esbuild' to false in your 'serverless.yml'.\nFor more information go to, https://slss.io/buildoptions\n    at PluginManager.addPlugin (file:///Users/haziqhaikal/.serverless/releases/4.1.12/package/dist/sf-core.js:854:65)\n    at file:///Users/haziqhaikal/.serverless/releases/4.1.12/package/dist/sf-core.js:854:1435\n    at Array.forEach (<anonymous>)\n    at PluginManager.loadAllPlugins (file:///Users/haziqhaikal/.serverless/releases/4.1.12/package/dist/sf-core.js:854:1413)\n    at async Serverless.init (file:///Users/haziqhaikal/.serverless/releases/4.1.12/package/dist/sf-core.js:861:9760)\n    at async runFramework (file:///Users/haziqhaikal/.serverless/releases/4.1.12/package/dist/sf-core.js:909:880)\n    at async route (file:///Users/haziqhaikal/.serverless/releases/4.1.12/package/dist/sf-core.js:920:16046)\n    at async Object.run2 [as run] (file:///Users/haziqhaikal/.serverless/releases/4.1.12/package/dist/sf-core.js:920:16444)\n    at async run3 (file:///Users/haziqhaikal/.serverless/releases/4.1.12/package/dist/sf-core.js:920:17704)",
+      "code": "PLUGIN_TYPESCRIPT_CONFLICT"
+    },
+    "params": {},
+    "machineId": "406e96a1b3fcc305370217166f9981b2",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "240cea43-1683-4035-a237-b6ea581770a1",
+    "orgName": "haziqhaikal",
+    "userId": "P4LML8FYsJVMZspJC9",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "haziqhaikal",
+    "subscription": null,
+    "userEmail": "haziquehaikal@gmail.com",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "740401803269",
+    "versionSf": "4.1.12",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  },
+  "unknown": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.12",
+    "isWithinCompose": false,
+    "composeOrgName": null,
+    "composeServiceName": null,
+    "command": [
+      "version"
+    ],
+    "options": {},
+    "error": null,
+    "machineId": "a5703c4a47ad387b5360b11e10951b4d",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

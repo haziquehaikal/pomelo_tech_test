@@ -1,0 +1,120 @@
+{
+  "info": {
+    "_postman_id": "f8524619-eaf3-40d0-acb8-cdeabd198a75",
+    "name": "Pomelo test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28435005"
+  },
+  "item": [
+    {
+      "name": "GetTransaction",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{HOST}}/transaction",
+          "host": ["{{HOST}}"],
+          "path": ["transaction"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateTransaction",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"amount\": \"123\",\n    \"currency\": \"MYR\",\n    \"status\":\"PAID\"\n    \n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{HOST}}/transaction",
+          "host": ["{{HOST}}"],
+          "path": ["transaction"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "resetTransaction",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"amount\": \"123\",\n    \"currency\": \"MYR\",\n    \"status\":\"PAID\"\n    \n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{HOST}}/transaction/reset",
+          "host": ["{{HOST}}"],
+          "path": ["transaction", "reset"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Transaction",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"status\":\"UNPAID\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{HOST}}/transaction/:transactionID",
+          "host": ["{{HOST}}"],
+          "path": ["transaction", ":transactionID"],
+          "variable": [
+            {
+              "key": "transactionID",
+              "value": "3a63ee1f-eb52-40e6-894d-29457662d599"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "HOST",
+      "value": "localhost:3000/dev",
+      "type": "string"
+    }
+  ]
+}

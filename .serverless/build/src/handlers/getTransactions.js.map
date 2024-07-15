@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../src/handlers/getTransactions.ts", "../../../../src/services/transactionService.ts"],
+  "sourcesContent": ["import { APIGatewayProxyHandler } from 'aws-lambda';\nimport { Transaction } from '../interface/transaction';\nimport { transactionService } from '../services/transactionService';\n\n\nexport const handler: APIGatewayProxyHandler = async () => {\n    return {\n        statusCode: 200,\n        body: JSON.stringify(transactionService.getTransactions()),\n    };\n};", "import { Transaction } from \"../interface/transaction\";\n\n\nclass TransactionService {\n\n    //STORE TEMP STATE\n    private transactions: Transaction[] = [];\n\n\n    createTransaction(transaction: Transaction) {\n\n        this.transactions.push(transaction);\n\n    }\n\n    getTransactions() {\n\n        return this.transactions\n    }\n\n}\n\nexport const transactionService = new TransactionService();"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;;;ACGA,IAAM,qBAAN,MAAyB;AAAA;AAAA,EAGb,eAA8B,CAAC;AAAA,EAGvC,kBAAkB,aAA0B;AAExC,SAAK,aAAa,KAAK,WAAW;AAAA,EAEtC;AAAA,EAEA,kBAAkB;AAEd,WAAO,KAAK;AAAA,EAChB;AAEJ;AAEO,IAAM,qBAAqB,IAAI,mBAAmB;;;ADjBlD,IAAM,UAAkC,YAAY;AACvD,SAAO;AAAA,IACH,YAAY;AAAA,IACZ,MAAM,KAAK,UAAU,mBAAmB,gBAAgB,CAAC;AAAA,EAC7D;AACJ;",
+  "names": []
+}

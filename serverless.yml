@@ -1,0 +1,58 @@
+org: haziqhaikal
+service: pomelo-tech-test
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-southeast-1
+  environment:
+    NODE_ENV: development
+    DATASOURCE_FILENAME: transactions.json
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
+
+functions:
+  createTransaction:
+    handler: dist/handlers/createTransaction.handler
+    events:
+      - http:
+          path: transaction
+          method: post
+          cors: true
+    timeout: 30
+    description: Create a new transaction
+
+  getTransactions:
+    handler: dist/handlers/getTransactions.handler
+    events:
+      - http:
+          path: transaction
+          method: get
+          cors: true
+    timeout: 30
+    description: Get all transactions
+
+  updateTransaction:
+    handler: dist/handlers/updateTransaction.handler
+    events:
+      - http:
+          path: transaction/{id}
+          method: patch
+          cors: true
+    timeout: 30
+    description: Update a transaction
+
+  resetTransaction:
+    handler: dist/handlers/resetTransaction.handler
+    events:
+      - http:
+          path: transaction/reset
+          method: put
+          cors: true
+    timeout: 30
+    description: Reset all transactions
